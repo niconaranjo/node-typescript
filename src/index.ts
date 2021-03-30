@@ -1,8 +1,20 @@
-import { sumTotal } from "./common/index";
+import express from 'express';
+import bodyParser from 'body-parser';
+import path from 'path';
 
-const sales: number[] = [10, 40, 50];
-const total = sumTotal(sales);
+import { adminRouter } from './routes/admin';
+import shopRouter from './routes/shop';
 
-const message = `Sales January ${total}`;
+const app = express();
 
-console.log(message);
+app.use(bodyParser.urlencoded());
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/admin', adminRouter);
+app.use(shopRouter);
+
+adminRouter.use((req, res, next) => {
+  res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
+});
+
+app.listen(3000);
