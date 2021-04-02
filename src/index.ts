@@ -7,6 +7,7 @@ import shopRouter from './routes/shop';
 
 const app = express();
 
+console.log(express.json());
 app.use(bodyParser.urlencoded());
 app.use(express.static(path.join(__dirname, 'public')));
 
