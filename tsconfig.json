@@ -3,19 +3,22 @@
     "target": "es6",
     "module": "es6",
     "moduleResolution": "node",
+    "preserveConstEnums": true,
     "removeComments": true,
     "declaration": false,
     "noImplicitAny": false,
     "sourceMap": true,
     "noLib": false,
     "allowJs": true,
+    "checkJs": false,
     "pretty": true,
     "suppressImplicitAnyIndexErrors": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "strict": true
   },
-  "include": ["src"],
+  "include": ["./src/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts"]
 }
